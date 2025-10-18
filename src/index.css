@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Coffee-inspired color palette */
+    --background: 38 15% 8%;
+    --foreground: 37 40% 96%;
+
+    --card: 38 25% 12%;
+    --card-foreground: 37 40% 96%;
+
+    --popover: 38 25% 10%;
+    --popover-foreground: 37 40% 96%;
+
+    /* Rich espresso primary */
+    --primary: 25 60% 45%;
+    --primary-foreground: 37 40% 98%;
+
+    /* Warm latte secondary */
+    --secondary: 37 35% 75%;
+    --secondary-foreground: 25 45% 15%;
+
+    /* Muted cream tones */
+    --muted: 37 25% 25%;
+    --muted-foreground: 37 25% 65%;
+
+    /* Golden accent */
+    --accent: 45 100% 60%;
+    --accent-foreground: 25 45% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 37 20% 20%;
+    --input: 37 20% 18%;
+    --ring: 45 100% 60%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens */
+    --coffee-dark: 25 55% 25%;
+    --coffee-medium: 25 50% 45%;
+    --coffee-light: 37 45% 75%;
+    --cream: 37 40% 95%;
+    --gold: 45 100% 60%;
+    --gold-glow: 45 100% 70%;
+
+    /* Gradients */
+    --gradient-coffee: linear-gradient(135deg, hsl(25 60% 35%) 0%, hsl(25 50% 50%) 50%, hsl(37 45% 70%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 55%) 0%, hsl(38 100% 65%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(37 40% 95% / 0.1) 0%, hsla(37 40% 95% / 0.05) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsla(45 100% 60% / 0.3);
+    --shadow-float: 0 20px 60px hsla(25 60% 20% / 0.5);
+    --shadow-card: 0 8px 32px hsla(25 60% 10% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+
+  .text-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px hsla(45 100% 60% / 0.5);
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-float);
+  }
+}
